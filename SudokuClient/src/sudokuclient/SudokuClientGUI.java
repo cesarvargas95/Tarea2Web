@@ -27,7 +27,7 @@ public class SudokuClientGUI extends javax.swing.JFrame {
         sudoku = service.getSudokuPort();
         ((BindingProvider)sudoku).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
         
-        panelJuego = new PanelJuego();
+        panelJuego = new PanelJuego(sudoku);
         
         PanelPrincipal.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();

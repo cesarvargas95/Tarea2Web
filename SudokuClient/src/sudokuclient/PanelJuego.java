@@ -5,17 +5,21 @@
  */
 package sudokuclient;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author acer main
  */
 public class PanelJuego extends javax.swing.JPanel {
+    private ecci_sudoku.SudokuPort sudoku;
 
     /**
      * Creates new form PanelJuego
      */
-    public PanelJuego() {
+    public PanelJuego(ecci_sudoku.SudokuPort puerto) {
         initComponents();
+        sudoku = puerto;
         jTextField1.setEditable(false);
     }
 
@@ -125,6 +129,11 @@ public class PanelJuego extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(526, 407));
 
         B_nuevo.setText("Nuevo");
+        B_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_nuevoActionPerformed(evt);
+            }
+        });
 
         B_reiniciar.setText("Reiniciar");
 
@@ -1341,7 +1350,7 @@ public class PanelJuego extends javax.swing.JPanel {
                                 .addComponent(jTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,11 +1415,10 @@ public class PanelJuego extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                    .addComponent(jSeparator5)
                     .addComponent(jSeparator6)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1508,7 +1516,7 @@ public class PanelJuego extends javax.swing.JPanel {
                             .addComponent(jTextField79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField80, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -3375,6 +3383,12 @@ public class PanelJuego extends javax.swing.JPanel {
                 jTextField1.setText("");
              }
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void B_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_nuevoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, sudoku.generate());
+        
+    }//GEN-LAST:event_B_nuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
