@@ -7,6 +7,7 @@ package sudokuclient;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.xml.ws.BindingProvider;
 
 /**
  *
@@ -15,12 +16,17 @@ import java.awt.GridBagLayout;
 public class SudokuClientGUI extends javax.swing.JFrame {
     private GridBagLayout layout = new GridBagLayout();
     private PanelJuego panelJuego;
+    private ecci_sudoku.SudokuPort sudoku;
     
     /**
      * Creates new form SudokuClientGUI
      */
     public SudokuClientGUI() {
         initComponents();
+        ecci_sudoku.ECCISudoku service = new ecci_sudoku.ECCISudoku();
+        sudoku = service.getSudokuPort();
+        ((BindingProvider)sudoku).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
+        
         panelJuego = new PanelJuego();
         
         PanelPrincipal.setLayout(layout);
