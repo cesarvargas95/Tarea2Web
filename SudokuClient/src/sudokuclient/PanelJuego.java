@@ -5,18 +5,31 @@
  */
 package sudokuclient;
 
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.xml.ws.BindingProvider;
+
 /**
  *
  * @author acer main
  */
 public class PanelJuego extends javax.swing.JPanel {
 
+   private final ecci_sudoku.SudokuPort sudo;
+   private String[] mInicio;
+   private Boolean jugando; 
+   private Boolean jugandoNuevo; 
     /**
      * Creates new form PanelJuego
      */
     public PanelJuego() {
         initComponents();
         jTextField1.setEditable(false);
+        jugando=false;
+        ecci_sudoku.ECCISudoku service = new ecci_sudoku.ECCISudoku();
+        sudo= service.getSudokuPort();
+        ((BindingProvider)sudo).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
+        
     }
 
     /**
@@ -132,10 +145,25 @@ public class PanelJuego extends javax.swing.JPanel {
         });
 
         B_reiniciar.setText("Reiniciar");
+        B_reiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_reiniciarActionPerformed(evt);
+            }
+        });
 
         B_comprobar.setText("Comprobar");
+        B_comprobar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_comprobarActionPerformed(evt);
+            }
+        });
 
         B_resolver.setText("Resolver");
+        B_resolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_resolverActionPerformed(evt);
+            }
+        });
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -1346,7 +1374,7 @@ public class PanelJuego extends javax.swing.JPanel {
                                 .addComponent(jTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1532,6 +1560,9 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField2.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 1, Integer.parseInt(jTextField2.getText()));
+            
+            
         }else{
             jTextField2.setText("");
         }
@@ -1547,6 +1578,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField3.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 2, Integer.parseInt(jTextField3.getText()));
         }else{
             jTextField3.setText("");
         }
@@ -1562,6 +1594,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField4.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 3, Integer.parseInt(jTextField4.getText()));
         }else{
             jTextField4.setText("");
         }
@@ -1577,6 +1610,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField5.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 4, Integer.parseInt(jTextField5.getText()));
         }else{
             jTextField5.setText("");
         }
@@ -1592,6 +1626,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField6.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 5, Integer.parseInt(jTextField6.getText()));
         }else{
             jTextField6.setText("");
         }
@@ -1607,6 +1642,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField7.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 6, Integer.parseInt(jTextField7.getText()));
         }else{
             jTextField7.setText("");
         }
@@ -1622,6 +1658,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField8.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 7, Integer.parseInt(jTextField8.getText()));
         }else{
             jTextField8.setText("");
         }
@@ -1637,6 +1674,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField9.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(0, 8, Integer.parseInt(jTextField9.getText()));
         }else{
             jTextField9.setText("");
         }
@@ -1652,6 +1690,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField10.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 0, Integer.parseInt(jTextField10.getText()));
         }else{
             jTextField10.setText("");
         }
@@ -1667,6 +1706,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField11.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 1, Integer.parseInt(jTextField11.getText()));
         }else{
             jTextField11.setText("");
         }
@@ -1682,6 +1722,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField12.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 2, Integer.parseInt(jTextField12.getText()));
         }else{
             jTextField12.setText("");
         }
@@ -1697,6 +1738,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField13.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 3, Integer.parseInt(jTextField13.getText()));
         }else{
             jTextField13.setText("");
         }
@@ -1712,6 +1754,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField14.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 4, Integer.parseInt(jTextField14.getText()));
         }else{
             jTextField14.setText("");
         }
@@ -1727,6 +1770,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField15.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 5, Integer.parseInt(jTextField15.getText()));
         }else{
             jTextField15.setText("");
         }
@@ -1742,6 +1786,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField16.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 6, Integer.parseInt(jTextField16.getText()));
         }else{
             jTextField16.setText("");
         }
@@ -1757,6 +1802,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField17.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 7, Integer.parseInt(jTextField17.getText()));
         }else{
             jTextField17.setText("");
         }
@@ -1772,6 +1818,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField18.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(1, 8, Integer.parseInt(jTextField18.getText()));
         }else{
             jTextField18.setText("");
         }
@@ -1787,6 +1834,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField19.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 0, Integer.parseInt(jTextField19.getText()));
         }else{
             jTextField19.setText("");
         }
@@ -1802,6 +1850,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField20.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 1, Integer.parseInt(jTextField20.getText()));
         }else{
             jTextField20.setText("");
         }
@@ -1817,6 +1866,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField21.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 2, Integer.parseInt(jTextField21.getText()));
         }else{
             jTextField21.setText("");
         }
@@ -1832,6 +1882,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField22.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 3, Integer.parseInt(jTextField22.getText()));
         }else{
             jTextField22.setText("");
         }
@@ -1847,6 +1898,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField23.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 4, Integer.parseInt(jTextField23.getText()));
         }else{
             jTextField23.setText("");
         }
@@ -1862,6 +1914,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField24.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 5, Integer.parseInt(jTextField24.getText()));
         }else{
             jTextField24.setText("");
         }
@@ -1877,6 +1930,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField25.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 6, Integer.parseInt(jTextField25.getText()));
         }else{
             jTextField25.setText("");
         }
@@ -1892,6 +1946,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField26.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 7, Integer.parseInt(jTextField26.getText()));
         }else{
             jTextField26.setText("");
         }
@@ -1907,6 +1962,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField27.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(2, 8, Integer.parseInt(jTextField27.getText()));
         }else{
             jTextField27.setText("");
         }
@@ -1922,6 +1978,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField28.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 0, Integer.parseInt(jTextField28.getText()));
         }else{
             jTextField28.setText("");
         }
@@ -1937,6 +1994,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField29.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 1, Integer.parseInt(jTextField29.getText()));
         }else{
             jTextField29.setText("");
         }
@@ -1952,6 +2010,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField30.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 2, Integer.parseInt(jTextField30.getText()));
         }else{
             jTextField30.setText("");
         }
@@ -1967,6 +2026,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField31.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 3, Integer.parseInt(jTextField31.getText()));
         }else{
             jTextField31.setText("");
         }
@@ -1982,6 +2042,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField32.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 4, Integer.parseInt(jTextField32.getText()));
         }else{
             jTextField32.setText("");
         }
@@ -1997,6 +2058,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField33.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 5, Integer.parseInt(jTextField33.getText()));
         }else{
             jTextField33.setText("");
         }
@@ -2012,6 +2074,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField34.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 6, Integer.parseInt(jTextField34.getText()));
         }else{
             jTextField34.setText("");
         }
@@ -2027,6 +2090,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField35.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 7, Integer.parseInt(jTextField35.getText()));
         }else{
             jTextField35.setText("");
         }
@@ -2042,6 +2106,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField36.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(3, 8, Integer.parseInt(jTextField36.getText()));
         }else{
             jTextField36.setText("");
         }
@@ -2057,6 +2122,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField37.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 0, Integer.parseInt(jTextField37.getText()));
         }else{
             jTextField37.setText("");
         }
@@ -2072,6 +2138,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField38.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 1, Integer.parseInt(jTextField38.getText()));
         }else{
             jTextField38.setText("");
         }
@@ -2087,6 +2154,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField39.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 2, Integer.parseInt(jTextField39.getText()));
         }else{
             jTextField39.setText("");
         }
@@ -2102,6 +2170,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField40.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 3, Integer.parseInt(jTextField40.getText()));
         }else{
             jTextField40.setText("");
         }
@@ -2117,6 +2186,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField41.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 4, Integer.parseInt(jTextField41.getText()));
         }else{
             jTextField41.setText("");
         }
@@ -2132,6 +2202,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField42.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 5, Integer.parseInt(jTextField42.getText()));
         }else{
             jTextField42.setText("");
         }
@@ -2147,6 +2218,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField43.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 6, Integer.parseInt(jTextField43.getText()));
         }else{
             jTextField43.setText("");
         }
@@ -2162,6 +2234,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField44.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 7, Integer.parseInt(jTextField44.getText()));
         }else{
             jTextField44.setText("");
         }
@@ -2177,6 +2250,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField45.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(4, 8, Integer.parseInt(jTextField45.getText()));
         }else{
             jTextField45.setText("");
         }
@@ -2192,6 +2266,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField46.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 0, Integer.parseInt(jTextField46.getText()));
         }else{
             jTextField46.setText("");
         }
@@ -2207,6 +2282,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField47.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 1, Integer.parseInt(jTextField47.getText()));
         }else{
             jTextField47.setText("");
         }
@@ -2222,6 +2298,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField48.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 2, Integer.parseInt(jTextField48.getText()));
         }else{
             jTextField48.setText("");
         }
@@ -2237,6 +2314,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField49.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 3, Integer.parseInt(jTextField49.getText()));
         }else{
             jTextField49.setText("");
         }
@@ -2252,6 +2330,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField50.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 4, Integer.parseInt(jTextField50.getText()));
         }else{
             jTextField50.setText("");
         }
@@ -2267,6 +2346,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField51.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 5, Integer.parseInt(jTextField51.getText()));
         }else{
             jTextField51.setText("");
         }
@@ -2282,6 +2362,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField52.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 6, Integer.parseInt(jTextField52.getText()));
         }else{
             jTextField52.setText("");
         }
@@ -2297,6 +2378,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField53.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 7, Integer.parseInt(jTextField53.getText()));
         }else{
             jTextField53.setText("");
         }
@@ -2312,6 +2394,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField54.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(5, 8, Integer.parseInt(jTextField54.getText()));
         }else{
             jTextField54.setText("");
         }
@@ -2327,6 +2410,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField55.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 0, Integer.parseInt(jTextField55.getText()));
         }else{
             jTextField55.setText("");
         }
@@ -2342,6 +2426,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField56.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 1, Integer.parseInt(jTextField56.getText()));
         }else{
             jTextField56.setText("");
         }
@@ -2357,6 +2442,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField57.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 2, Integer.parseInt(jTextField57.getText()));
         }else{
             jTextField57.setText("");
         }
@@ -2372,6 +2458,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField58.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 3, Integer.parseInt(jTextField58.getText()));
         }else{
             jTextField58.setText("");
         }
@@ -2387,6 +2474,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField59.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 4, Integer.parseInt(jTextField59.getText()));
         }else{
             jTextField59.setText("");
         }
@@ -2402,6 +2490,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField60.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 5, Integer.parseInt(jTextField60.getText()));
         }else{
             jTextField60.setText("");
         }
@@ -2417,6 +2506,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField61.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 6, Integer.parseInt(jTextField61.getText()));
         }else{
             jTextField61.setText("");
         }
@@ -2432,6 +2522,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField62.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 7, Integer.parseInt(jTextField62.getText()));
         }else{
             jTextField62.setText("");
         }
@@ -2447,6 +2538,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField63.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(6, 8, Integer.parseInt(jTextField63.getText()));
         }else{
             jTextField63.setText("");
         }
@@ -2462,6 +2554,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField64.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 0, Integer.parseInt(jTextField64.getText()));
         }else{
             jTextField64.setText("");
         }
@@ -2477,6 +2570,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField65.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 1, Integer.parseInt(jTextField65.getText()));
         }else{
             jTextField65.setText("");
         }
@@ -2492,6 +2586,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField66.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 2, Integer.parseInt(jTextField66.getText()));
         }else{
             jTextField66.setText("");
         }
@@ -2507,6 +2602,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField67.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 3, Integer.parseInt(jTextField67.getText()));
         }else{
             jTextField67.setText("");
         }
@@ -2522,6 +2618,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField68.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 4, Integer.parseInt(jTextField68.getText()));
         }else{
             jTextField68.setText("");
         }
@@ -2537,6 +2634,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField69.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 5, Integer.parseInt(jTextField69.getText()));
         }else{
             jTextField69.setText("");
         }
@@ -2552,6 +2650,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField70.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 6, Integer.parseInt(jTextField70.getText()));
         }else{
             jTextField70.setText("");
         }
@@ -2567,6 +2666,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField71.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 7, Integer.parseInt(jTextField71.getText()));
         }else{
             jTextField71.setText("");
         }
@@ -2582,6 +2682,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField72.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(7, 8, Integer.parseInt(jTextField72.getText()));
         }else{
             jTextField72.setText("");
         }
@@ -2597,6 +2698,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField73.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 0, Integer.parseInt(jTextField73.getText()));
         }else{
             jTextField73.setText("");
         }
@@ -2612,6 +2714,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField74.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 1, Integer.parseInt(jTextField74.getText()));
         }else{
             jTextField74.setText("");
         }
@@ -2627,6 +2730,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField75.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 2, Integer.parseInt(jTextField75.getText()));
         }else{
             jTextField75.setText("");
         }
@@ -2642,6 +2746,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField76.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 3, Integer.parseInt(jTextField76.getText()));
         }else{
             jTextField76.setText("");
         }
@@ -2657,6 +2762,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField77.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 4, Integer.parseInt(jTextField77.getText()));
         }else{
             jTextField77.setText("");
         }
@@ -2672,6 +2778,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField78.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 5, Integer.parseInt(jTextField78.getText()));
         }else{
             jTextField78.setText("");
         }
@@ -2687,6 +2794,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField79.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 6, Integer.parseInt(jTextField79.getText()));
         }else{
             jTextField79.setText("");
         }
@@ -2702,6 +2810,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField80.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 7, Integer.parseInt(jTextField80.getText()));
         }else{
             jTextField80.setText("");
         }
@@ -2717,6 +2826,7 @@ public class PanelJuego extends javax.swing.JPanel {
         if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
             jTextField81.setText(String.valueOf(evt.getKeyChar()));
+            sudo.jugar(8, 8, Integer.parseInt(jTextField81.getText()));
         }else{
             jTextField81.setText("");
         }
@@ -3375,6 +3485,8 @@ public class PanelJuego extends javax.swing.JPanel {
          if(evt.getKeyCode()>48 && evt.getKeyCode()<58){
 
                jTextField1.setText(String.valueOf(evt.getKeyChar()));
+               sudo.jugar(0, 0, Integer.parseInt(jTextField1.getText()));
+               
             }else{
                 jTextField1.setText("");
              }
@@ -3382,10 +3494,175 @@ public class PanelJuego extends javax.swing.JPanel {
 
     private void B_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_nuevoActionPerformed
         // TODO add your handling code here:
-        System.out.println("asd");
+        if(jugando==true){
+            int n = JOptionPane.showConfirmDialog(this,"Desea iniciar un juego nuevo? \nEl juego actual se perdera!.","Juego nuevo",JOptionPane.YES_NO_OPTION);
+            if(n == 0){
+                String st= sudo.generate();
+                System.out.println(st);
+                String delims = "[,]";
+                mInicio = st.split(delims);
+                jugandoNuevo= true;//esta variable es para poner el font en BOLD
+                llenarCampos(mInicio);
+                jugandoNuevo= false;
+            }
+        }else{
+                String st= sudo.generate();
+                System.out.println(st);
+                String delims = "[,]";
+                mInicio = st.split(delims);
+                jugandoNuevo= true;//esta variable es para poner el font en BOLD
+                llenarCampos(mInicio);
+                jugandoNuevo= false;
+        }
+        jugando=true;
+        
     }//GEN-LAST:event_B_nuevoActionPerformed
 
+    private void B_comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_comprobarActionPerformed
+        // TODO add your handling code here:
+        //System.out.println(sudo.getPuntuaciones());
+        if(jugando){
+            if(sudo.revisar()){
+                JOptionPane.showMessageDialog(this, "Juego Completado!!.","Completado",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Juego sin resolver!!.","Incompleto",JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Inicia el juego.","Iniciar",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_B_comprobarActionPerformed
 
+    private void B_reiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_reiniciarActionPerformed
+        // TODO add your handling code here:
+        if(jugando){
+            int n = JOptionPane.showConfirmDialog(this,"Confirmar Reinicio","Reiniciar",JOptionPane.YES_NO_OPTION);
+            if(n == 0){
+                String st= sudo.getMatrixInicial();
+                System.out.println(st);
+                String delims = "[,]";
+                mInicio = st.split(delims);
+                llenarCampos(mInicio);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Inicia el juego.","Iniciar",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_B_reiniciarActionPerformed
+
+    private void B_resolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_resolverActionPerformed
+        // TODO add your handling code here:
+        if(jugando){
+            int n = JOptionPane.showConfirmDialog(this,"Esta seguro de ver la solución?","Resolver",JOptionPane.YES_NO_OPTION);
+            if(n == 0){
+                String st= sudo.solve();
+                System.out.println(st);
+                String delims = "[,]";
+                mInicio = st.split(delims);
+                llenarCampos(mInicio);
+        
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Inicia el juego.","Iniciar",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_B_resolverActionPerformed
+
+    private void llenarCampos(String[] matrix){
+        llenaCelda(jTextField1, matrix[0]);
+        llenaCelda(jTextField2, matrix[1]);
+        llenaCelda(jTextField3, matrix[2]);
+        llenaCelda(jTextField4, matrix[3]);
+        llenaCelda(jTextField5, matrix[4]);
+        llenaCelda(jTextField6, matrix[5]);
+        llenaCelda(jTextField7, matrix[6]);
+        llenaCelda(jTextField8, matrix[7]);
+        llenaCelda(jTextField9, matrix[8]);
+        llenaCelda(jTextField10, matrix[9]);
+        llenaCelda(jTextField11, matrix[10]);
+        llenaCelda(jTextField12, matrix[11]);
+        llenaCelda(jTextField13, matrix[12]);
+        llenaCelda(jTextField14, matrix[13]);
+        llenaCelda(jTextField15, matrix[14]);
+        llenaCelda(jTextField16, matrix[15]);
+        llenaCelda(jTextField17, matrix[16]);
+        llenaCelda(jTextField18, matrix[17]);
+        llenaCelda(jTextField19, matrix[18]);
+        llenaCelda(jTextField20, matrix[19]);
+        llenaCelda(jTextField21, matrix[20]);
+        llenaCelda(jTextField22, matrix[21]);
+        llenaCelda(jTextField23, matrix[22]);
+        llenaCelda(jTextField24, matrix[23]);
+        llenaCelda(jTextField25, matrix[24]);
+        llenaCelda(jTextField26, matrix[25]);
+        llenaCelda(jTextField27, matrix[26]);
+        llenaCelda(jTextField28, matrix[27]);
+        llenaCelda(jTextField29, matrix[28]);
+        llenaCelda(jTextField30, matrix[29]);
+        llenaCelda(jTextField31, matrix[30]);
+        llenaCelda(jTextField32, matrix[31]);
+        llenaCelda(jTextField33, matrix[32]);
+        llenaCelda(jTextField34, matrix[33]);
+        llenaCelda(jTextField35, matrix[34]);
+        llenaCelda(jTextField36, matrix[35]);
+        llenaCelda(jTextField37, matrix[36]);
+        llenaCelda(jTextField38, matrix[37]);
+        llenaCelda(jTextField39, matrix[38]);
+        llenaCelda(jTextField40, matrix[39]);
+        llenaCelda(jTextField41, matrix[40]);
+        llenaCelda(jTextField42, matrix[41]);
+        llenaCelda(jTextField43, matrix[42]);
+        llenaCelda(jTextField44, matrix[43]);
+        llenaCelda(jTextField45, matrix[44]);
+        llenaCelda(jTextField46, matrix[45]);
+        llenaCelda(jTextField47, matrix[46]);
+        llenaCelda(jTextField48, matrix[47]);
+        llenaCelda(jTextField49, matrix[48]);
+        llenaCelda(jTextField50, matrix[49]);
+        llenaCelda(jTextField51, matrix[50]);
+        llenaCelda(jTextField52, matrix[51]);
+        llenaCelda(jTextField53, matrix[52]);
+        llenaCelda(jTextField54, matrix[53]);
+        llenaCelda(jTextField55, matrix[54]);
+        llenaCelda(jTextField56, matrix[55]);
+        llenaCelda(jTextField57, matrix[56]);
+        llenaCelda(jTextField58, matrix[57]);
+        llenaCelda(jTextField59, matrix[58]);
+        llenaCelda(jTextField60, matrix[59]);
+        llenaCelda(jTextField61, matrix[60]);
+        llenaCelda(jTextField62, matrix[61]);
+        llenaCelda(jTextField63, matrix[62]);
+        llenaCelda(jTextField64, matrix[63]);
+        llenaCelda(jTextField65, matrix[64]);
+        llenaCelda(jTextField66, matrix[65]);
+        llenaCelda(jTextField67, matrix[66]);
+        llenaCelda(jTextField68, matrix[67]);
+        llenaCelda(jTextField69, matrix[68]);
+        llenaCelda(jTextField70, matrix[69]);
+        llenaCelda(jTextField71, matrix[70]);
+        llenaCelda(jTextField72, matrix[71]);
+        llenaCelda(jTextField73, matrix[72]);
+        llenaCelda(jTextField74, matrix[73]);
+        llenaCelda(jTextField75, matrix[74]);
+        llenaCelda(jTextField76, matrix[75]);
+        llenaCelda(jTextField77, matrix[76]);
+        llenaCelda(jTextField78, matrix[77]);
+        llenaCelda(jTextField79, matrix[78]);
+        llenaCelda(jTextField80, matrix[79]);
+        llenaCelda(jTextField81, matrix[80]);
+        
+    }
+    private void llenaCelda(javax.swing.JTextField jT,String c){
+        if(!c.equals("0")){
+            jT.setText(c);
+            
+            if(jugandoNuevo){
+                jT.setFont(new Font("Tahoma", Font.BOLD, 11));
+                jT.setEnabled(false);
+            } 
+        }else{
+            jT.setText("");
+            jT.setFont(new Font("Tahoma", Font.PLAIN, 11));
+            jT.setEnabled(true);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_comprobar;
     private javax.swing.JButton B_nuevo;
@@ -3481,4 +3758,7 @@ public class PanelJuego extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField81;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+
+
 }

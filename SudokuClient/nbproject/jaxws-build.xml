@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-Sudoku" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
-        <property name="wsdl-Sudoku" location="xml-resources/web-service-references/Sudoku/wsdl/titanic.ecci.ucr.ac.cr/_eb47280/Tarea_Programada_2/Sudoku.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sudoku" destdir="${build.generated.dir}/jax-wsCache/Sudoku" wsdl="${wsdl-Sudoku}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr/~eb47280/Tarea_Programada_2/Sudoku.wsdl" xnocompile="true" xendorsed="true" package="EcciSudoku">
-            <depends file="${wsdl-Sudoku}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
+    <target name="wsimport-client-Sudoku_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
+        <property name="wsdl-Sudoku_1" location="xml-resources/web-service-references/Sudoku_1/wsdl/titanic.ecci.ucr.ac.cr/_eb47280/Tarea_Programada_2/Sudoku.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sudoku_1" destdir="${build.generated.dir}/jax-wsCache/Sudoku_1" wsdl="${wsdl-Sudoku_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr/~eb47280/Tarea_Programada_2/Sudoku.wsdl" xnocompile="true" xendorsed="true" package="ecci_sudoku">
+            <depends file="${wsdl-Sudoku_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/Sudoku">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Sudoku_1">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-Sudoku" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/EcciSudoku"/>
+    <target name="wsimport-client-clean-Sudoku_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/ecci_sudoku"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Sudoku"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-Sudoku_1"/>
 </project>
