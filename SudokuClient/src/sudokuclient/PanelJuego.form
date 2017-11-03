@@ -296,7 +296,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace pref="75" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -380,7 +380,6 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -518,21 +517,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_nuevoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B_reiniciar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reiniciar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_reiniciarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B_comprobar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprobar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_comprobarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B_resolver">
       <Properties>
         <Property name="text" type="java.lang.String" value="Resolver"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_resolverActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
