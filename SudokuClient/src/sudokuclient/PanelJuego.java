@@ -125,6 +125,11 @@ public class PanelJuego extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(526, 407));
 
         B_nuevo.setText("Nuevo");
+        B_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_nuevoActionPerformed(evt);
+            }
+        });
 
         B_reiniciar.setText("Reiniciar");
 
@@ -1406,7 +1411,6 @@ public class PanelJuego extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3375,6 +3379,11 @@ public class PanelJuego extends javax.swing.JPanel {
                 jTextField1.setText("");
              }
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void B_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_nuevoActionPerformed
+        // TODO add your handling code here:
+        System.out.println("asd");
+    }//GEN-LAST:event_B_nuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
