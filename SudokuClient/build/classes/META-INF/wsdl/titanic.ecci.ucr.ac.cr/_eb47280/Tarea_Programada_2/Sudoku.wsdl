@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Descripción WSDL de la clase Hola Mundo. -->
+
+<definitions name="ECCI_Sudoku"
+             targetNamespace="urn:ECCI_Sudoku"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="urn:ECCI_Sudoku"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <!-- Tipos complejos -->
+
+  <types xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <xsd:schema targetNamespace="urn:ECCI_Sudoku">
+      <xsd:element name="jugar">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fila" type="xsd:int" nillable="true" />
+			 <xsd:element name="columna" type="xsd:int" nillable="true" />
+			  <xsd:element name="num" type="xsd:int" nillable="true" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="jugarReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="jugarResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="generate">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="generateReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="generateResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMatrixInicial">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getMatrixInicialReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getMatrixInicialResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solve">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="solveReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="solveResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="getInicio">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getInicioReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getInicioResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="getFin">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getFinReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getFinResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="getPuntuaciones">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getPuntuacionesReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPuntuacionesResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="revisar">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="revisarReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="revisarResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+
+  <!-- Mensajes para comunicarse con la clase HolaMundo. -->
+
+  <message name="jugarRequest">
+    <part name="parameters" element="tns:jugar" />
+  </message>
+
+  <message name="jugarResponse">
+    <part name="parameters" element="tns:jugarReturn" />
+  </message>
+
+  <message name="generateRequest">
+    <part name="parameters" element="tns:generate" />
+  </message>
+
+  <message name="generateResponse">
+    <part name="parameters" element="tns:generateReturn" />
+  </message>
+
+  <message name="getMatrixInicialRequest">
+    <part name="parameters" element="tns:getMatrixInicial" />
+  </message>
+
+  <message name="getMatrixInicialResponse">
+    <part name="parameters" element="tns:getMatrixInicialReturn" />
+  </message>
+
+  <message name="solveRequest">
+    <part name="parameters" element="tns:solve" />
+  </message>
+
+  <message name="solveResponse">
+    <part name="parameters" element="tns:solveReturn" />
+  </message>
+  
+  <message name="getInicioRequest">
+    <part name="parameters" element="tns:getInicio" />
+  </message>
+
+  <message name="getInicioResponse">
+    <part name="parameters" element="tns:getInicioReturn" />
+  </message>
+  
+  <message name="getFinRequest">
+    <part name="parameters" element="tns:getFin" />
+  </message>
+
+  <message name="getFinResponse">
+    <part name="parameters" element="tns:getFinReturn" />
+  </message>
+  
+    <message name="getPuntuacionesRequest">
+    <part name="parameters" element="tns:getPuntuaciones" />
+  </message>
+
+  <message name="getPuntuacionesResponse">
+    <part name="parameters" element="tns:getPuntuacionesReturn" />
+  </message>
+  
+  <message name="revisarRequest">
+    <part name="parameters" element="tns:revisar" />
+  </message>
+
+  <message name="revisarResponse">
+    <part name="parameters" element="tns:revisarReturn" />
+  </message>
+
+  <!-- Puerto para comunicar con la clase HolaMundo, "ECCI_Sudoku" -->
+
+  <portType name="SudokuPort">
+
+    <operation name="jugar">
+      <input message="tns:jugarRequest" />
+      <output message="tns:jugarResponse" />
+    </operation>
+
+    <operation name="generate">
+      <input message="tns:generateRequest" />
+      <output message="tns:generateResponse" />
+    </operation>
+
+    <operation name="getMatrixInicial">
+      <input message="tns:getMatrixInicialRequest" />
+      <output message="tns:getMatrixInicialResponse" />
+    </operation>
+
+    <operation name="solve">
+      <input message="tns:solveRequest" />
+      <output message="tns:solveResponse" />
+    </operation>
+	
+	<operation name="getInicio">
+      <input message="tns:getInicioRequest" />
+      <output message="tns:getInicioResponse" />
+    </operation>
+	
+	<operation name="getFin">
+      <input message="tns:getFinRequest" />
+      <output message="tns:getFinResponse" />
+    </operation>
+	
+	<operation name="getPuntuaciones">
+      <input message="tns:getPuntuacionesRequest" />
+      <output message="tns:getPuntuacionesResponse" />
+    </operation>
+	
+	<operation name="revisar">
+      <input message="tns:revisarRequest" />
+      <output message="tns:revisarResponse" />
+    </operation>
+
+  </portType>
+
+  <!-- Vinculación de los llamados con el transporte - Document, SOAP/Literal over HTTP -->
+
+  <binding name="SudokuBinding" type="tns:SudokuPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+    <operation name="jugar">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#jugar" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+    <operation name="generate">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#generate" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+    <operation name="getMatrixInicial">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#getMatrixInicial" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+    <operation name="solve">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#solve" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
+	<operation name="getInicio">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#getInicio" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
+	<operation name="getFin">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#getFin" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
+	<operation name="getPuntuaciones">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#getPuntuaciones" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
+    <operation name="revisar">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#revisar" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+
+
+  
+  <!-- Punto de comunicación con la clase Sudoku -->
+
+  <service name="ECCI_Sudoku">
+    <documentation />
+    <port name="SudokuPort" binding="tns:SudokuBinding">
+      <soap:address location="http://titanic.ecci.ucr.ac.cr:80/~eb47280/Tarea_Programada_2/" />
+    </port>
+  </service>
+
+</definitions>
