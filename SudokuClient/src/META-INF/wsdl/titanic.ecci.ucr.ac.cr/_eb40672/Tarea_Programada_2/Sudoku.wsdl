@@ -41,6 +41,16 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getMatrixInicial">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getMatrixInicialReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getMatrixInicialResult" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="solve">
         <xsd:complexType />
       </xsd:element>
@@ -82,18 +92,36 @@
         </xsd:complexType>
       </xsd:element>
 	  <xsd:element name="revisar">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="fila" type="xsd:int" nillable="true" />
-			 <xsd:element name="columna" type="xsd:int" nillable="true" />
-			  <xsd:element name="num" type="xsd:int" nillable="true" />
-          </xsd:sequence>
-        </xsd:complexType>
+        <xsd:complexType />
       </xsd:element>
       <xsd:element name="revisarReturn">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="revisarResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="isPuntuacion">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="isPuntuacionReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isPuntuacionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="guardarPuntuacion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nombre" type="xsd:string" nillable="true" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="guardarPuntuacionReturn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="guardarPuntuacionResult" type="xsd:boolean" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -116,6 +144,14 @@
 
   <message name="generateResponse">
     <part name="parameters" element="tns:generateReturn" />
+  </message>
+
+  <message name="getMatrixInicialRequest">
+    <part name="parameters" element="tns:getMatrixInicial" />
+  </message>
+
+  <message name="getMatrixInicialResponse">
+    <part name="parameters" element="tns:getMatrixInicialReturn" />
   </message>
 
   <message name="solveRequest">
@@ -157,6 +193,22 @@
   <message name="revisarResponse">
     <part name="parameters" element="tns:revisarReturn" />
   </message>
+  
+  <message name="isPuntuacionRequest">
+    <part name="parameters" element="tns:isPuntuacion" />
+  </message>
+
+  <message name="isPuntuacionResponse">
+    <part name="parameters" element="tns:isPuntuacionReturn" />
+  </message>
+  
+  <message name="guardarPuntuacionRequest">
+    <part name="parameters" element="tns:guardarPuntuacion" />
+  </message>
+
+  <message name="guardarPuntuacionResponse">
+    <part name="parameters" element="tns:guardarPuntuacionReturn" />
+  </message>
 
   <!-- Puerto para comunicar con la clase HolaMundo, "ECCI_Sudoku" -->
 
@@ -170,6 +222,11 @@
     <operation name="generate">
       <input message="tns:generateRequest" />
       <output message="tns:generateResponse" />
+    </operation>
+
+    <operation name="getMatrixInicial">
+      <input message="tns:getMatrixInicialRequest" />
+      <output message="tns:getMatrixInicialResponse" />
     </operation>
 
     <operation name="solve">
@@ -196,6 +253,16 @@
       <input message="tns:revisarRequest" />
       <output message="tns:revisarResponse" />
     </operation>
+	
+	<operation name="isPuntuacion">
+      <input message="tns:isPuntuacionRequest" />
+      <output message="tns:isPuntuacionResponse" />
+    </operation>
+	
+	<operation name="guardarPuntuacion">
+      <input message="tns:guardarPuntuacionRequest" />
+      <output message="tns:guardarPuntuacionResponse" />
+    </operation>
 
   </portType>
 
@@ -216,6 +283,16 @@
 
     <operation name="generate">
       <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#generate" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+    <operation name="getMatrixInicial">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#getMatrixInicial" style="document" />
       <input>
         <soap:body use="literal" />
       </input>
@@ -273,6 +350,27 @@
         <soap:body use="literal" />
       </output>
     </operation>
+	
+	<operation name="isPuntuacion">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#isPuntuacion" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
+	<operation name="guardarPuntuacion">
+      <soap:operation soapAction="urn:ECCI_Sudoku#Sudoku#guardarPuntuacion" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+	
   </binding>
 
 

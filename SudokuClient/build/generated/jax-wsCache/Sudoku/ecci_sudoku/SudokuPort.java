@@ -59,6 +59,17 @@ public interface SudokuPort {
      * @return
      *     returns java.lang.String
      */
+    @WebMethod(action = "urn:ECCI_Sudoku#Sudoku#getMatrixInicial")
+    @WebResult(name = "getMatrixInicialResult", targetNamespace = "")
+    @RequestWrapper(localName = "getMatrixInicial", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.GetMatrixInicial")
+    @ResponseWrapper(localName = "getMatrixInicialReturn", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.GetMatrixInicialReturn")
+    public String getMatrixInicial();
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
     @WebMethod(action = "urn:ECCI_Sudoku#Sudoku#solve")
     @WebResult(name = "solveResult", targetNamespace = "")
     @RequestWrapper(localName = "solve", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.Solve")
@@ -100,9 +111,6 @@ public interface SudokuPort {
 
     /**
      * 
-     * @param columna
-     * @param fila
-     * @param num
      * @return
      *     returns boolean
      */
@@ -110,12 +118,31 @@ public interface SudokuPort {
     @WebResult(name = "revisarResult", targetNamespace = "")
     @RequestWrapper(localName = "revisar", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.Revisar")
     @ResponseWrapper(localName = "revisarReturn", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.RevisarReturn")
-    public boolean revisar(
-        @WebParam(name = "fila", targetNamespace = "")
-        Integer fila,
-        @WebParam(name = "columna", targetNamespace = "")
-        Integer columna,
-        @WebParam(name = "num", targetNamespace = "")
-        Integer num);
+    public boolean revisar();
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(action = "urn:ECCI_Sudoku#Sudoku#isPuntuacion")
+    @WebResult(name = "isPuntuacionResult", targetNamespace = "")
+    @RequestWrapper(localName = "isPuntuacion", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.IsPuntuacion")
+    @ResponseWrapper(localName = "isPuntuacionReturn", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.IsPuntuacionReturn")
+    public boolean isPuntuacion();
+
+    /**
+     * 
+     * @param nombre
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(action = "urn:ECCI_Sudoku#Sudoku#guardarPuntuacion")
+    @WebResult(name = "guardarPuntuacionResult", targetNamespace = "")
+    @RequestWrapper(localName = "guardarPuntuacion", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.GuardarPuntuacion")
+    @ResponseWrapper(localName = "guardarPuntuacionReturn", targetNamespace = "urn:ECCI_Sudoku", className = "ecci_sudoku.GuardarPuntuacionReturn")
+    public boolean guardarPuntuacion(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
 
 }

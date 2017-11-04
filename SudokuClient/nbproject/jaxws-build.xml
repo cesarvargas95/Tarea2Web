@@ -4,7 +4,7 @@
         *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
         *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
 
-        --><project xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:xalan="http://xml.apache.org/xslt" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
     <!--
                 ===================
                 JAX-WS WSIMPORT SECTION
@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-Sudoku_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
-        <property name="wsdl-Sudoku_1" location="xml-resources/web-service-references/Sudoku_1/wsdl/titanic.ecci.ucr.ac.cr/_eb47280/Tarea_Programada_2/Sudoku.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sudoku_1" destdir="${build.generated.dir}/jax-wsCache/Sudoku_1" wsdl="${wsdl-Sudoku_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr/~eb47280/Tarea_Programada_2/Sudoku.wsdl" xnocompile="true" xendorsed="true" package="ecci_sudoku">
-            <depends file="${wsdl-Sudoku_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
+    <target name="wsimport-client-Sudoku" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
+        <property name="wsdl-Sudoku" location="xml-resources/web-service-references/Sudoku/wsdl/titanic.ecci.ucr.ac.cr/_eb40672/Tarea_Programada_2/Sudoku.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sudoku" destdir="${build.generated.dir}/jax-wsCache/Sudoku" wsdl="${wsdl-Sudoku}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://titanic.ecci.ucr.ac.cr/~eb40672/Tarea_Programada_2/Sudoku.wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-Sudoku}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/Sudoku_1">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Sudoku">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-Sudoku_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/Sudoku_1"/>
+    <target name="wsimport-client-clean-Sudoku" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Sudoku"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/ecci_sudoku"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Sudoku_1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-Sudoku"/>
 </project>

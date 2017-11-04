@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -46,7 +46,7 @@ public class Jugar {
     protected Integer num;
 
     /**
-     * Obtiene el valor de la propiedad fila.
+     * Gets the value of the fila property.
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class Jugar {
     }
 
     /**
-     * Define el valor de la propiedad fila.
+     * Sets the value of the fila property.
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class Jugar {
     }
 
     /**
-     * Obtiene el valor de la propiedad columna.
+     * Gets the value of the columna property.
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class Jugar {
     }
 
     /**
-     * Define el valor de la propiedad columna.
+     * Sets the value of the columna property.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +94,7 @@ public class Jugar {
     }
 
     /**
-     * Obtiene el valor de la propiedad num.
+     * Gets the value of the num property.
      * 
      * @return
      *     possible object is
@@ -106,7 +106,7 @@ public class Jugar {
     }
 
     /**
-     * Define el valor de la propiedad num.
+     * Sets the value of the num property.
      * 
      * @param value
      *     allowed object is

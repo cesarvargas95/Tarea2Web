@@ -62,6 +62,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GuardarPuntuacion }
+     * 
+     */
+    public GuardarPuntuacion createGuardarPuntuacion() {
+        return new GuardarPuntuacion();
+    }
+
+    /**
      * Create an instance of {@link SolveReturn }
      * 
      */
@@ -94,6 +102,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GuardarPuntuacionReturn }
+     * 
+     */
+    public GuardarPuntuacionReturn createGuardarPuntuacionReturn() {
+        return new GuardarPuntuacionReturn();
+    }
+
+    /**
      * Create an instance of {@link Revisar }
      * 
      */
@@ -123,6 +139,22 @@ public class ObjectFactory {
      */
     public GenerateReturn createGenerateReturn() {
         return new GenerateReturn();
+    }
+
+    /**
+     * Create an instance of {@link IsPuntuacion }
+     * 
+     */
+    public IsPuntuacion createIsPuntuacion() {
+        return new IsPuntuacion();
+    }
+
+    /**
+     * Create an instance of {@link IsPuntuacionReturn }
+     * 
+     */
+    public IsPuntuacionReturn createIsPuntuacionReturn() {
+        return new IsPuntuacionReturn();
     }
 
     /**

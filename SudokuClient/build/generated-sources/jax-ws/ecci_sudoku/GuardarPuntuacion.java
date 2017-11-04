@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="getMatrixInicialResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "getMatrixInicialResult"
+    "nombre"
 })
-@XmlRootElement(name = "getMatrixInicialReturn")
-public class GetMatrixInicialReturn {
+@XmlRootElement(name = "guardarPuntuacion")
+public class GuardarPuntuacion {
 
-    @XmlElement(required = true)
-    protected String getMatrixInicialResult;
+    @XmlElement(required = true, nillable = true)
+    protected String nombre;
 
     /**
-     * Obtiene el valor de la propiedad getMatrixInicialResult.
+     * Gets the value of the nombre property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getGetMatrixInicialResult() {
-        return getMatrixInicialResult;
+    public String getNombre() {
+        return nombre;
     }
 
     /**
-     * Define el valor de la propiedad getMatrixInicialResult.
+     * Sets the value of the nombre property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setGetMatrixInicialResult(String value) {
-        this.getMatrixInicialResult = value;
+    public void setNombre(String value) {
+        this.nombre = value;
     }
 
 }

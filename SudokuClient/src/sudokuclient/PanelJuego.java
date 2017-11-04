@@ -15,7 +15,7 @@ import javax.xml.ws.BindingProvider;
  */
 public class PanelJuego extends javax.swing.JPanel {
 
-   private final ecci_sudoku.SudokuPort sudo;
+   public final ecci_sudoku.SudokuPort sudo;
    private String[] mInicio;
    private Boolean jugando; 
    private Boolean jugandoNuevo; 
@@ -3520,10 +3520,20 @@ public class PanelJuego extends javax.swing.JPanel {
 
     private void B_comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_comprobarActionPerformed
         // TODO add your handling code here:
-        //System.out.println(sudo.getPuntuaciones());
+        System.out.println(sudo.getPuntuaciones());
         if(jugando){
             if(sudo.revisar()){
                 JOptionPane.showMessageDialog(this, "Juego Completado!!.","Completado",JOptionPane.INFORMATION_MESSAGE);
+                Boolean res = sudo.isPuntuacion();
+                if(res == true){
+                    String nombre;
+                    nombre = JOptionPane.showInputDialog("Nueva alta puntuacion! Digite su nombre");
+                    System.out.println(sudo.guardarPuntuacion(nombre));
+                    JOptionPane.showMessageDialog(null, sudo.getPuntuaciones(), "Altas puntuaciones", JOptionPane.PLAIN_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Lo sentimos. No obtuviste una alta puntuacion", "Altas puntuaciones", JOptionPane.PLAIN_MESSAGE);
+                }
             }else{
                 JOptionPane.showMessageDialog(this, "Juego sin resolver!!.","Incompleto",JOptionPane.WARNING_MESSAGE);
             }

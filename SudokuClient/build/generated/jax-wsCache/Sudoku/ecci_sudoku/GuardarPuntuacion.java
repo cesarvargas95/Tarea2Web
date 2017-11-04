@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="generateResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "generateResult"
+    "nombre"
 })
-@XmlRootElement(name = "generateReturn")
-public class GenerateReturn {
+@XmlRootElement(name = "guardarPuntuacion")
+public class GuardarPuntuacion {
 
-    @XmlElement(required = true)
-    protected String generateResult;
+    @XmlElement(required = true, nillable = true)
+    protected String nombre;
 
     /**
-     * Obtiene el valor de la propiedad generateResult.
+     * Gets the value of the nombre property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getGenerateResult() {
-        return generateResult;
+    public String getNombre() {
+        return nombre;
     }
 
     /**
-     * Define el valor de la propiedad generateResult.
+     * Sets the value of the nombre property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setGenerateResult(String value) {
-        this.generateResult = value;
+    public void setNombre(String value) {
+        this.nombre = value;
     }
 
 }

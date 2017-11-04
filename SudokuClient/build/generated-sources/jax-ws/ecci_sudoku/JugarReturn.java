@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -36,7 +36,7 @@ public class JugarReturn {
     protected int jugarResult;
 
     /**
-     * Obtiene el valor de la propiedad jugarResult.
+     * Gets the value of the jugarResult property.
      * 
      */
     public int getJugarResult() {
@@ -44,7 +44,7 @@ public class JugarReturn {
     }
 
     /**
-     * Define el valor de la propiedad jugarResult.
+     * Sets the value of the jugarResult property.
      * 
      */
     public void setJugarResult(int value) {

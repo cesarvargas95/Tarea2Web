@@ -3,7 +3,6 @@ package ecci_sudoku;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -18,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="solveResult" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="guardarPuntuacionResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +28,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "solveResult"
+    "guardarPuntuacionResult"
 })
-@XmlRootElement(name = "solveReturn")
-public class SolveReturn {
+@XmlRootElement(name = "guardarPuntuacionReturn")
+public class GuardarPuntuacionReturn {
 
-    @XmlElement(required = true)
-    protected String solveResult;
+    protected boolean guardarPuntuacionResult;
 
     /**
-     * Gets the value of the solveResult property.
+     * Gets the value of the guardarPuntuacionResult property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getSolveResult() {
-        return solveResult;
+    public boolean isGuardarPuntuacionResult() {
+        return guardarPuntuacionResult;
     }
 
     /**
-     * Sets the value of the solveResult property.
+     * Sets the value of the guardarPuntuacionResult property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setSolveResult(String value) {
-        this.solveResult = value;
+    public void setGuardarPuntuacionResult(boolean value) {
+        this.guardarPuntuacionResult = value;
     }
 
 }

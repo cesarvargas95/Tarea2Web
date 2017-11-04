@@ -38,6 +38,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetMatrixInicial }
+     * 
+     */
+    public GetMatrixInicial createGetMatrixInicial() {
+        return new GetMatrixInicial();
+    }
+
+    /**
      * Create an instance of {@link GetInicioReturn }
      * 
      */
@@ -51,6 +59,14 @@ public class ObjectFactory {
      */
     public GetFinReturn createGetFinReturn() {
         return new GetFinReturn();
+    }
+
+    /**
+     * Create an instance of {@link GuardarPuntuacion }
+     * 
+     */
+    public GuardarPuntuacion createGuardarPuntuacion() {
+        return new GuardarPuntuacion();
     }
 
     /**
@@ -70,11 +86,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetMatrixInicialReturn }
+     * 
+     */
+    public GetMatrixInicialReturn createGetMatrixInicialReturn() {
+        return new GetMatrixInicialReturn();
+    }
+
+    /**
      * Create an instance of {@link RevisarReturn }
      * 
      */
     public RevisarReturn createRevisarReturn() {
         return new RevisarReturn();
+    }
+
+    /**
+     * Create an instance of {@link GuardarPuntuacionReturn }
+     * 
+     */
+    public GuardarPuntuacionReturn createGuardarPuntuacionReturn() {
+        return new GuardarPuntuacionReturn();
     }
 
     /**
@@ -107,6 +139,22 @@ public class ObjectFactory {
      */
     public GenerateReturn createGenerateReturn() {
         return new GenerateReturn();
+    }
+
+    /**
+     * Create an instance of {@link IsPuntuacion }
+     * 
+     */
+    public IsPuntuacion createIsPuntuacion() {
+        return new IsPuntuacion();
+    }
+
+    /**
+     * Create an instance of {@link IsPuntuacionReturn }
+     * 
+     */
+    public IsPuntuacionReturn createIsPuntuacionReturn() {
+        return new IsPuntuacionReturn();
     }
 
     /**

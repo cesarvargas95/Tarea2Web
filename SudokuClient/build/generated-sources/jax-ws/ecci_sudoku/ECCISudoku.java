@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ECCI_Sudoku", targetNamespace = "urn:ECCI_Sudoku", wsdlLocation = "http://titanic.ecci.ucr.ac.cr/~eb47280/Tarea_Programada_2/Sudoku.wsdl")
+@WebServiceClient(name = "ECCI_Sudoku", targetNamespace = "urn:ECCI_Sudoku", wsdlLocation = "http://titanic.ecci.ucr.ac.cr/~eb40672/Tarea_Programada_2/Sudoku.wsdl")
 public class ECCISudoku
     extends Service
 {
@@ -30,7 +30,7 @@ public class ECCISudoku
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://titanic.ecci.ucr.ac.cr/~eb47280/Tarea_Programada_2/Sudoku.wsdl");
+            url = new URL("http://titanic.ecci.ucr.ac.cr/~eb40672/Tarea_Programada_2/Sudoku.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

@@ -7,6 +7,7 @@ package sudokuclient;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.swing.JOptionPane;
 import javax.xml.ws.BindingProvider;
 
 /**
@@ -22,12 +23,8 @@ public class SudokuClientGUI extends javax.swing.JFrame {
      * Creates new form SudokuClientGUI
      */
     public SudokuClientGUI() {
-        initComponents();
-        ecci_sudoku.ECCISudoku service = new ecci_sudoku.ECCISudoku();
-        sudoku = service.getSudokuPort();
-        ((BindingProvider)sudoku).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
-        
-        panelJuego = new PanelJuego(sudoku);
+       initComponents();
+        panelJuego = new PanelJuego();
         
         PanelPrincipal.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
@@ -77,6 +74,11 @@ public class SudokuClientGUI extends javax.swing.JFrame {
         jMenu1.getAccessibleContext().setAccessibleParent(jMenu1);
 
         jMenu2.setText("Historial");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -94,6 +96,11 @@ public class SudokuClientGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, panelJuego.sudo.getPuntuaciones(), "Altas puntuaciones", JOptionPane.PLAIN_MESSAGE);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
